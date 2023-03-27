@@ -39,13 +39,17 @@ class NetworkApiServices extends BaseApiServices {
 
     try{
       final response = await http.post(Uri.parse(url),
-      body: jsonEncode(data),
+      //body: jsonEncode(data),
+      body: data,
       ).timeout(const Duration(seconds: 10));
       responseJson = returnResponse(response);
     }on SocketException{
       throw InternetException('');
     }on RequestTimeOut{
       throw RequestTimeOut('');
+    }
+    if (kDebugMode) {
+      print(responseJson);
     }
     return responseJson;
   }
@@ -58,6 +62,8 @@ class NetworkApiServices extends BaseApiServices {
          dynamic responseJson = jsonDecode(response.body);
          return responseJson;
        case 400:
+         // dynamic responseJson = jsonDecode(response.body);
+         // return responseJson;
          throw InternetException ;
        default :
          throw FetchDataException('Error accoured while communication with server${response.statusCode}');
