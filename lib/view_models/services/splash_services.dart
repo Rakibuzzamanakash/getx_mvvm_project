@@ -13,6 +13,15 @@ class SplashServices {
   void isLogin(){
     userPreference.getUser().then((value) {
 
+      // if(value.isLogin == false || value.isLogin.toString() == 'null'){
+      //   Timer(const Duration(seconds: 3),
+      //           () => Get.toNamed(RouteName.loginView)
+      //   );
+      // }else{
+      //   Timer(const Duration(seconds: 3),
+      //           () => Get.toNamed(RouteName.homeView)
+      //   );
+      // }
       if(value.token!.isEmpty || value.token.toString() == 'null'){
         Timer(const Duration(seconds: 3),
                 () => Get.toNamed(RouteName.loginView)

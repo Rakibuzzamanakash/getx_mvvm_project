@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:getx_mvvm_project/res/components/round_button.dart';
 import 'package:getx_mvvm_project/utils/utils.dart';
 import 'package:getx_mvvm_project/view_models/controller/login/login_view_model.dart';
+import 'package:getx_mvvm_project/views/login/widgets/input_email_widgets.dart';
+import 'package:getx_mvvm_project/views/login/widgets/input_password_widgets.dart';
 
 class LoginView extends StatelessWidget {
    LoginView({Key? key}) : super(key: key);
@@ -29,6 +31,7 @@ class LoginView extends StatelessWidget {
               key: _formkey,
               child: Column(
                 children: [
+                  //InputEmailWidgets(),
                   TextFormField(
                     controller: loginViewModel.emailController.value,
                     focusNode: loginViewModel.emailFocusNode.value,
@@ -57,13 +60,14 @@ class LoginView extends StatelessWidget {
                       }
                     },
                     onFieldSubmitted: (value){
-                    //  Utils.fieldFocusChange(context, loginViewModel.emailFocusNode.value, loginViewModel.passwordFocusNode.value);
+                      //  Utils.fieldFocusChange(context, loginViewModel.emailFocusNode.value, loginViewModel.passwordFocusNode.value);
                     },
                     decoration: InputDecoration(
                       hintText: 'password_hint'.tr,
                       border: OutlineInputBorder(),
                     ),
                   ),
+                  //InputPasswordWidgets(),
                 ],
               ),
             ),
